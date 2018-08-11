@@ -11,12 +11,13 @@ func _ready():
 	
 func end(): 
 	hide()
+	position = Vector2(200, 200)
 	$CollisionShape2D.disabled = true
 	
 func start(start_position, direction):
 	dir = direction 
-	$CollisionShape2D.disabled = false
 	position = start_position
+	$CollisionShape2D.disabled = false
 	velocity = Vector2(dir * movement_speed, 0)	
 	show()
 

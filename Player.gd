@@ -1,6 +1,7 @@
 extends Area2D
 
 signal ammo_display
+signal speed_up
 signal dead
 
 #Export allows to be edited in Inspector
@@ -9,7 +10,7 @@ var screensize #Size of game window
 var projectile = preload("res://Projectile.tscn")
 onready var fire_position = get_node("Position2D")
 var started = false 
-var ammo = 10
+export var ammo = 5
 
 var dir = 1
 
@@ -21,9 +22,11 @@ func _ready():
 func end():
 	started = false 
 	hide()
+	$CollisionShape2D.disabled = true
 	
 func start():
 	self.position = Vector2(screensize.x/2, screensize.y/2)
+	$CollisionShape2D.disabled = false
 	show()
 	started = true
 
@@ -74,6 +77,10 @@ func _process(delta):
 func ammo():
 	ammo += 1
 	emit_signal("ammo_display")
+		
+#Emit signal via collided player
+func speedup(): 
+	emit_signal("speed_up")
 		
 func _on_Player_body_entered(body): 
 	if body.collision_layer == 3: 

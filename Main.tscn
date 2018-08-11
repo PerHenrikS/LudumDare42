@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Collectable.tscn" type="PackedScene" id=5]
 
 [node name="Main" type="Node2D"]
 
@@ -33,14 +32,23 @@ position = Vector2( 511.863, 305.457 )
 [node name="LeftWall" parent="." index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 1100.9, 291.603 )
+pushback = 15
+movement_speed = 25
 
 [node name="RightWall" parent="." index="5" instance=ExtResource( 4 )]
 
 position = Vector2( -115.019, 282.709 )
+pushback = 15
+movement_speed = 25
 
-[node name="Collectable" parent="." index="6" instance=ExtResource( 5 )]
+[node name="SpawnTimer" type="Timer" parent="." index="6"]
 
-position = Vector2( 342.357, 130.244 )
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="Collects" type="Node2D" parent="." index="7"]
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 
@@ -49,5 +57,9 @@ position = Vector2( 342.357, 130.244 )
 [connection signal="ammo_display" from="Player" to="." method="_on_Player_ammo_display"]
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
+
+[connection signal="speed_up" from="Player" to="." method="_on_Player_speed_up"]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
 
 
