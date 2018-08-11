@@ -32,8 +32,10 @@ func new_game():
 	$HUD.update_score(score) 
 	$HUD.show_message("")
 	
-	$LeftWall.start(Vector2(45, screen.y / 2), 1)
-	$RightWall.start(Vector2(screen.x - 45, screen.y / 2), -1)
+	var offset = 100
+	var posX = $RightWall.get_child(1).get_shape().extents.x
+	$LeftWall.start(Vector2((-posX/2)-offset, screen.y / 2), 1)
+	$RightWall.start(Vector2(screen.x + (posX/2)+offset, screen.y / 2), -1)
 	$Player.start()
 	
 func _on_ScoreTimer_timeout():
@@ -52,8 +54,9 @@ func _on_Player_ammo_display():
 
 func _on_SpawnTimer_timeout():
 	var obj = collectable.instance()
+	var posX = $RightWall.get_child(1).get_shape().extents.x
 	#TODO: these still have some issue
-	var randX = rand_range($LeftWall.position.x+50, $RightWall.position.x-50)
+	var randX = rand_range($LeftWall.position.x+(posX), $RightWall.position.x-(posX))
 	var randY = rand_range(0, screen.y)
 	
 	obj.position = Vector2(
