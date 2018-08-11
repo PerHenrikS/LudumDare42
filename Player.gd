@@ -17,6 +17,7 @@ var dir = 1
 func _ready():
 	emit_signal("ammo_display")
 	screensize = get_viewport_rect().size
+	$CollisionShape2D.disabled = true
 	hide()
 	
 func end():
@@ -26,9 +27,9 @@ func end():
 	
 func start():
 	self.position = Vector2(screensize.x/2, screensize.y/2)
-	$CollisionShape2D.disabled = false
 	show()
 	started = true
+	$CollisionShape2D.disabled = false
 
 func _process(delta):
 	if started: 
@@ -42,7 +43,6 @@ func _process(delta):
 		if Input.is_action_pressed("ui_up"):
 			velocity.y -= 1
 		if Input.is_action_just_pressed("ui_select"): 
-		
 			if get_viewport().get_mouse_position().x < self.position.x: 
 				fire_position.position.x = -45
 				dir = -1 
@@ -82,7 +82,8 @@ func ammo():
 func speedup(): 
 	emit_signal("speed_up")
 		
-func _on_Player_body_entered(body): 
-	if body.collision_layer == 3: 
-		emit_signal("dead")
+func _on_Player_body_entered(body):
+	if started: 
+		if body.collision_layer == 3: 
+			emit_signal("dead")
 

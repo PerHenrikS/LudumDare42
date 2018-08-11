@@ -22,21 +22,20 @@ func game_over():
 		c.queue_free()
 	
 func new_game(): 
+	var offset = 100
+	var posX = $RightWall.get_child(1).get_shape().extents.x
+	$LeftWall.start(Vector2((-posX/2)-offset, screen.y / 2), 1)
+	$RightWall.start(Vector2(screen.x + (posX/2)+offset, screen.y / 2), -1)
 	$ScoreTimer.start()
 	$SpawnTimer.wait_time = 2
 	$SpawnTimer.start()
 	score = 0
 	$Player.ammo = 5
 	$HUD.update_ammo($Player.ammo)
-	
 	$HUD.update_score(score) 
 	$HUD.show_message("")
-	
-	var offset = 100
-	var posX = $RightWall.get_child(1).get_shape().extents.x
-	$LeftWall.start(Vector2((-posX/2)-offset, screen.y / 2), 1)
-	$RightWall.start(Vector2(screen.x + (posX/2)+offset, screen.y / 2), -1)
 	$Player.start()
+
 	
 func _on_ScoreTimer_timeout():
 	var i = randi()%2

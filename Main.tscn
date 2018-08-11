@@ -5,7 +5,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -31,13 +31,13 @@ position = Vector2( 511.863, 305.457 )
 
 [node name="LeftWall" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 1434.11, 328.019 )
+position = Vector2( -355.764, 309.811 )
 pushback = 15
 movement_speed = 25
 
 [node name="RightWall" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( -468.259, 328.229 )
+position = Vector2( 1358.03, 319.125 )
 pushback = 15
 movement_speed = 25
 
