@@ -8,14 +8,17 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Ouch, tight spot!")
+	show_message("Loser!")
 	yield($MessageTimer, "timeout")
 	$StartButton.show()
 	$MessageLabel.text = "Walls!"
 	$MessageLabel.show()
 	
+func update_ammo(ammo):
+	$AmmoLabel.text = "Ammo: " + str(ammo)
+
 func update_score(score): 
-	$ScoreLabel.text = str(score)
+	$ScoreLabel.text = "Score: " + str(score)
 	
 func _on_StartButton_pressed():
 	$StartButton.hide()

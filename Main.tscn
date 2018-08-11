@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Collectable.tscn" type="PackedScene" id=5]
 
-[node name="Main" type="Node2D" index="0"]
+[node name="Main" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -37,9 +38,15 @@ position = Vector2( 1100.9, 291.603 )
 
 position = Vector2( -115.019, 282.709 )
 
+[node name="Collectable" parent="." index="6" instance=ExtResource( 5 )]
+
+position = Vector2( 342.357, 130.244 )
+
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+
+[connection signal="ammo_display" from="Player" to="." method="_on_Player_ammo_display"]
 
 [connection signal="dead" from="Player" to="." method="_on_Player_dead"]
 

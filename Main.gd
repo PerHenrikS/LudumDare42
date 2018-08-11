@@ -31,3 +31,6 @@ func _on_ScoreTimer_timeout():
 
 func _on_Player_dead():
 	game_over()
+
+func _on_Player_ammo_display():
+	$HUD.update_ammo($Player.ammo)

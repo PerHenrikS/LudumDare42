@@ -40,10 +40,10 @@ anchor_left = 0.5
 anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-margin_left = -60.0
-margin_top = 20.0
-margin_right = 60.0
-margin_bottom = 157.0
+margin_left = 150.0
+margin_top = 22.0
+margin_right = 270.0
+margin_bottom = 159.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -51,14 +51,38 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
-text = "0"
+text = "Score: 0"
 align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "Margin", "custom_fonts" ]
 
-[node name="MessageLabel" type="Label" parent="." index="1"]
+[node name="AmmoLabel" type="Label" parent="." index="1"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = -300.0
+margin_top = 25.0
+margin_right = -94.0
+margin_bottom = 88.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 1 )
+text = "Ammo: 5"
+align = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Margin", "custom_fonts" ]
+
+[node name="MessageLabel" type="Label" parent="." index="2"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -81,7 +105,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="StartButton" type="Button" parent="." index="2"]
+[node name="StartButton" type="Button" parent="." index="3"]
 
 anchor_left = 0.5
 anchor_top = 1.0
@@ -107,7 +131,7 @@ text = "Start"
 flat = false
 align = 1
 
-[node name="MessageTimer" type="Timer" parent="." index="3"]
+[node name="MessageTimer" type="Timer" parent="." index="4"]
 
 process_mode = 1
 wait_time = 1.0

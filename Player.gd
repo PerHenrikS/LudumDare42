@@ -1,5 +1,6 @@
 extends Area2D
 
+signal ammo_display
 signal dead
 
 #Export allows to be edited in Inspector
@@ -8,10 +9,12 @@ var screensize #Size of game window
 var projectile = preload("res://Projectile.tscn")
 onready var fire_position = get_node("Position2D")
 var started = false 
+var ammo = 10
 
 var dir = 1
 
 func _ready():
+	emit_signal("ammo_display")
 	screensize = get_viewport_rect().size
 	hide()
 	
@@ -44,11 +47,14 @@ func _process(delta):
 				fire_position.position.x = 45
 				dir = 1
 			
-			var obj = projectile.instance()
-			obj.position = Vector2(fire_position.get_global_position())
-			obj.start(dir)
-			
-			get_parent().add_child(obj)
+			if ammo > 0: 
+				var obj = projectile.instance()
+				obj.position = Vector2(fire_position.get_global_position())
+				obj.start(dir)
+				
+				get_parent().add_child(obj)
+				ammo -= 1
+				emit_signal("ammo_display")
 			
 		if velocity.length() > 0: 
 			velocity = velocity.normalized() * speed
@@ -65,7 +71,9 @@ func _process(delta):
 			$AnimatedSprite.flip_v = false 
 			$AnimatedSprite.flip_h = velocity.x < 0
 		
-		
+func ammo():
+	ammo += 1
+	emit_signal("ammo_display")
 		
 func _on_Player_body_entered(body): 
 	if body.collision_layer == 3: 
