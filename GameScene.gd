@@ -6,6 +6,8 @@ var screensize #Size of game window
 var projectile = preload("res://Projectile.tscn")
 onready var fire_position = get_node("Position2D")
 
+var dir = 1
+
 func _ready():
 	# Called when the node is added to the scene for the first time.
 	# Initialization here
@@ -24,16 +26,19 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("ui_select"): 
+		
 		if get_viewport().get_mouse_position().x < self.position.x: 
 			fire_position.position.x = -45
+			dir = -1 
 		else: 
 			fire_position.position.x = 45
+			dir = 1
 		
 		var obj = projectile.instance()
 		obj.position = Vector2(fire_position.get_global_position())
+		obj.start(dir)
 		
 		get_parent().add_child(obj)
-		obj.shoot(-1)
 		
 	if velocity.length() > 0: 
 		velocity = velocity.normalized() * speed

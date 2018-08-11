@@ -1,12 +1,15 @@
 extends KinematicBody2D
 
-var projectile_speed = 400
+export var projectile_speed = 400
 var velocity = Vector2()
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
-
-func shoot(direction): 
-	move_and_slide(Vector2(direction*projectile_speed, 0))
+func start(direction): 
+	velocity = Vector2(direction * projectile_speed, 0)
+	
+func _physics_process(delta):
+	var collision = move_and_collide(velocity * delta) 
+	if collision: 
+		print("COLLIDED")
+		
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
