@@ -33,7 +33,7 @@ func new_game():
 	$Player.ammo = 5
 	$HUD.update_ammo($Player.ammo)
 	$HUD.update_score(score) 
-	$HUD.show_message("")
+	$HUD.show_message("Rumble!")
 	$Player.start()
 
 	
@@ -67,3 +67,11 @@ func _on_SpawnTimer_timeout():
 func _on_Player_speed_up():
 	if $SpawnTimer.wait_time > .1:
 		$SpawnTimer.wait_time -= 0.2
+
+
+func _on_LeftWall_cam_shake():
+	$Camera2D.shake()
+
+
+func _on_RightWall_cam_shake():
+	$Camera2D.shake()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://assets/StickRunRight129.png" type="Texture" id=2]
-[ext_resource path="res://assets/StickRunRight130.png" type="Texture" id=3]
+[ext_resource path="res://assets/RunRight512_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/RunRight512_2.png" type="Texture" id=3]
+[ext_resource path="res://assets/RunRight512_3.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -12,10 +13,10 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "Right",
-"speed": 10.0
+"speed": 15.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -40,7 +41,8 @@ ammo = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-scale = Vector2( 0.5, 0.5 )
+position = Vector2( 0, 3.1596 )
+scale = Vector2( 0.15, 0.124116 )
 frames = SubResource( 1 )
 animation = "Idle"
 _sections_unfolded = [ "Transform" ]

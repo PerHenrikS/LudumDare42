@@ -8,10 +8,10 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Loser!")
+	show_message("Tight!")
 	yield($MessageTimer, "timeout")
 	$StartButton.show()
-	$MessageLabel.text = "Walls!"
+	$MessageLabel.text = ""
 	$MessageLabel.show()
 	
 func update_ammo(ammo):

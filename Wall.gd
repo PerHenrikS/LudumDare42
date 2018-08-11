@@ -1,11 +1,15 @@
 extends KinematicBody2D
 
+
 export var pushback = 10
 export var movement_speed = 10
 var dir
 var velocity = Vector2()
+var cam_shake = 1.0 
+var camera 
 
 func _ready():
+	camera = get_node("Camera")
 	$CollisionShape2D.disabled = true
 	hide()
 	
