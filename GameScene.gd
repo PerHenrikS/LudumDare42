@@ -24,13 +24,16 @@ func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		velocity.y -= 1
 	if Input.is_action_just_pressed("ui_select"): 
-		#Load "thing" object when throwing
-		if velocity.x != 0: 
-			var obj = projectile.instance()
-			obj.position = Vector2(fire_position.get_global_position())
-			
-			get_parent().add_child(obj)
-			obj.shoot(-1)
+		if get_viewport().get_mouse_position().x < self.position.x: 
+			fire_position.position.x = -45
+		else: 
+			fire_position.position.x = 45
+		
+		var obj = projectile.instance()
+		obj.position = Vector2(fire_position.get_global_position())
+		
+		get_parent().add_child(obj)
+		obj.shoot(-1)
 		
 	if velocity.length() > 0: 
 		velocity = velocity.normalized() * speed
@@ -46,7 +49,3 @@ func _process(delta):
 		$AnimatedSprite.animation = "Right"
 		$AnimatedSprite.flip_v = false 
 		$AnimatedSprite.flip_h = velocity.x < 0
-		if velocity.x < 0: 
-			fire_position.position.x = -45
-		elif velocity.x > 0: 
-			fire_position.position.x = 45
