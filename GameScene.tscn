@@ -27,7 +27,7 @@ animations = [ {
 custom_solver_bias = 0.0
 extents = Vector2( 32.0456, 32.1692 )
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" index="0"]
 
 position = Vector2( 1.10213, 11.9604 )
 input_pickable = true
@@ -38,7 +38,7 @@ angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
-speed = 400
+speed = 600
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
