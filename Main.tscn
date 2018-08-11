@@ -31,13 +31,13 @@ position = Vector2( 511.863, 305.457 )
 
 [node name="LeftWall" parent="." index="4" instance=ExtResource( 4 )]
 
-position = Vector2( 1100.9, 291.603 )
+position = Vector2( 1434.11, 328.019 )
 pushback = 15
 movement_speed = 25
 
 [node name="RightWall" parent="." index="5" instance=ExtResource( 4 )]
 
-position = Vector2( -115.019, 282.709 )
+position = Vector2( -468.259, 328.229 )
 pushback = 15
 movement_speed = 25
 

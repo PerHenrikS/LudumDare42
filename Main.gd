@@ -38,8 +38,7 @@ func new_game():
 	
 func _on_ScoreTimer_timeout():
 	var i = randi()%2
-	print(i)
-	walls[i].velocity = walls[i].velocity*1.01
+	walls[i].velocity = walls[i].velocity*1.02
 	score += 1
 	$HUD.update_score(score)
 	
