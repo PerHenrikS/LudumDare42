@@ -9,6 +9,7 @@ var collectable = preload("res://Collectable.tscn")
 func _ready():
 	screen = get_viewport_rect().size
 	walls = [$LeftWall, $RightWall]
+	$AudioStreamPlayer2D.play()
 
 func game_over():
 	$ScoreTimer.stop()
@@ -65,7 +66,7 @@ func _on_SpawnTimer_timeout():
 	get_node("Collects").add_child(obj)
 
 func _on_Player_speed_up():
-	if $SpawnTimer.wait_time > .1:
+	if $SpawnTimer.wait_time > .2:
 		$SpawnTimer.wait_time -= 0.2
 
 

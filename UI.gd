@@ -8,7 +8,7 @@ func show_message(text):
 	$MessageTimer.start()
 	
 func show_game_over():
-	show_message("Tight!")
+	show_message("")
 	yield($MessageTimer, "timeout")
 	$StartButton.show()
 	$MessageLabel.text = ""

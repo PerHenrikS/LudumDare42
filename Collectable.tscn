@@ -6,9 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 62.2349, 62.5692 )
+extents = Vector2( 45.9762, 45.8883 )
 
-[node name="Collectable" type="Area2D"]
+[node name="Collectable" type="Area2D" index="0"]
 
 scale = Vector2( 0.2, 0.2 )
 input_pickable = true
@@ -20,13 +20,10 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.34, 0.34 )
+scale = Vector2( 0.24, 0.24 )
 z_index = 2
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Material", "Transform" ]

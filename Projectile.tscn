@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 9.64879, 9.68112 )
+extents = Vector2( 3.9024, 3.72662 )
 
 [node name="Projectile" type="KinematicBody2D"]
 
@@ -20,11 +20,13 @@ projectile_speed = 1000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
+position = Vector2( -0.51371, -0.293549 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
-scale = Vector2( 0.0600506, 0.0600506 )
+position = Vector2( -0.602335, 0 )
+scale = Vector2( 0.02, 0.02 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

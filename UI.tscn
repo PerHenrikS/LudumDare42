@@ -1,21 +1,31 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI.gd" type="Script" id=1]
-[ext_resource path="res://assets/Sansation-Bold copy.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/VT323-Regular.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=1]
-
-size = 50
-use_mipmaps = false
-use_filter = false
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 
 size = 50
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=5]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=6]
+
+size = 50
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
 
 [sub_resource type="DynamicFont" id=3]
 
@@ -25,7 +35,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font" ]
 
-[node name="HUD" type="CanvasLayer" index="0"]
+[node name="HUD" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -50,7 +60,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.14902, 0.27451, 0.32549, 1 )
 text = "Score: 0"
 align = 1
@@ -75,7 +85,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.14902, 0.27451, 0.32549, 1 )
 text = "Ammo: 5"
 align = 1
@@ -100,7 +110,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.14902, 0.27451, 0.32549, 1 )
 percent_visible = 1.0
 lines_skipped = 0
@@ -134,7 +144,7 @@ group = null
 text = "Start"
 flat = true
 align = 1
-_sections_unfolded = [ "custom_colors" ]
+_sections_unfolded = [ "custom_fonts" ]
 
 [node name="MessageTimer" type="Timer" parent="." index="4"]
 

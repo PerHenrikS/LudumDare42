@@ -85,5 +85,6 @@ func speedup():
 func _on_Player_body_entered(body):
 	if started: 
 		if body.collision_layer == 3: 
+			$AudioStreamPlayer2D.play()
 			emit_signal("dead")
 

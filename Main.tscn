@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/BackgroundCol.png" type="Texture" id=5]
 [ext_resource path="res://Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://assets/Theme.wav" type="AudioStream" id=7]
 
 [node name="Main" type="Node2D"]
 
@@ -92,6 +93,18 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="10"]
+
+position = Vector2( 512.302, 303.94 )
+stream = ExtResource( 7 )
+volume_db = -24.78
+pitch_scale = 1.0
+autoplay = true
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 [connection signal="start_game" from="HUD" to="." method="new_game"]
 
