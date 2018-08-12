@@ -7,7 +7,7 @@
 - **Implementation** - Godot 3
 - **Mode** - Compo (All content in 48h ie. assets, music, code) 
 
-## Rumble! - Play [here](www.google.com) (Loading takes a while)
+## Rumble! - Play [here](https://perhenriks.github.io/LudumDare42/) (Loading takes a while)
 
 #### Description: 
 You are trapped in a collapsing cave. There is no way out, but you can live in peace... as long as you keep 
