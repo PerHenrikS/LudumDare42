@@ -55,7 +55,7 @@ func _on_Player_ammo_display():
 func _on_SpawnTimer_timeout():
 	var obj = collectable.instance()
 	var posX = $RightWall.get_child(1).get_shape().extents.x
-	#TODO: these still have some issue
+
 	var randX = rand_range($LeftWall.position.x+(posX), $RightWall.position.x-(posX))
 	var randY = rand_range(0, screen.y)
 	

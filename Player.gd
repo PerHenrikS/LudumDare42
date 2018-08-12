@@ -4,9 +4,8 @@ signal ammo_display
 signal speed_up
 signal dead
 
-#Export allows to be edited in Inspector
-export (int) var speed #Player movement speed 
-var screensize #Size of game window 
+export (int) var speed
+var screensize 
 var projectile = preload("res://Projectile.tscn")
 onready var fire_position = get_node("Position2D")
 var started = false 
